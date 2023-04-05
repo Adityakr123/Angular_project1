@@ -35,9 +35,7 @@ export class OtpInputDirective {
     const input = event.target as HTMLInputElement;
     let inputValue = input.value;
     inputValue = inputValue.replace(/[^\d]/g, '');
-
     input.value = inputValue;
-
     const nextInput = this.el.nativeElement.nextElementSibling as HTMLInputElement;
     const prevInput = this.el.nativeElement.previousElementSibling as HTMLInputElement;
     // if((inputValue as string).length  === 1 && nextInput ){

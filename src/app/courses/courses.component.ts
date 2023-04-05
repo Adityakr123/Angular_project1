@@ -28,9 +28,8 @@ export class CoursesComponent {
   // }
   keyup(postInput:any){
     
-    if(postInput.key=='Enter'){
       console.log(postInput.target.value);
-    }
+    
    
   }
    
