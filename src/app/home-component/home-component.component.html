@@ -1,0 +1,151 @@
+<h1>ANGULAR</h1>
+<h1>Hello, you have pressed enter {{counter}} number of times!</h1> Press enter key to increment the counter.
+<button (click)="resetCounter()">Reset Counter</button>
+<app-courses></app-courses>
+<div class="container">
+  <h2>New in smart phone</h2>
+  <div class="more-products">
+    <div class="card">      
+      <h4 class="title">New in iPhone</h4>
+      <p class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <button class="btn btn-more">Show more</button>
+    </div>
+    <div class="card">
+      <h4 class="title">New in Samsung</h4>
+      <p class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <button class="btn btn-more">Show more</button>
+    </div>       
+    <div class="card">
+      <h4 class="title">New in OnePlus</h4>
+      <p class="summary">Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+      <button class="btn btn-more">Show more</button>
+    </div>
+    <div class="card">
+      <h4 class="title"> New in MI </h4>
+      <p class="summary">Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magnaaliqua.</p>
+      <button class="btn btn-more">Show more</button>
+    </div>
+  </div>
+</div>    
+<h1>ng-content-modified use of ng content </h1>
+<div class="container">
+  <h2>New in smart phone</h2>
+  <div class="more-products">
+    <app-ng-content-modified>
+      <h4 class="title">New in iPhone</h4>
+    </app-ng-content-modified>
+    <app-ng-content-modified>
+      <h4 class="title">New in Samsung</h4>
+    </app-ng-content-modified>
+    <app-ng-content-modified>
+      <h4 class="title">New in OnePlus</h4>
+    </app-ng-content-modified>
+    <app-ng-content-modified>
+      <h4 class="title">New in MI</h4>
+    </app-ng-content-modified>
+  </div>
+</div>
+<div *ngIf="courses.length>0">LIST OF THE COURSES </div>
+<div *ngIf="courses.length == 0">NO COURSES YET</div>
+<!-- this logic like below can be used  -->
+<div *ngIf="courses.length > 0; else noCourses">LIST OF THE COURSES</div>
+<ng-template #noCourses>NO COURSES YET</ng-template>
+
+<div [hidden]="courses.length==0">List Of courses</div>
+<div [hidden]="courses.length>0">No courses yet</div>
+
+<ul class="nav nav-pills">
+  <li [class.active]="viewMode=='map'"><a (click)="viewMode='map'">Map View</a></li>
+  <br>
+  <li [class.active]="viewMode=='list'"><a (click)="viewMode='list'">List View</a></li>
+</ul>
+<br>
+<br>
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">Map view content</div>
+  <div *ngSwitchCase="'list'">List view content </div>
+  <div *ngSwitchDefault>Default</div>
+</div>
+<app-contact-form></app-contact-form>
+
+<h1> template bassed Forms </h1>
+<form #LoginForm="ngForm" (ngSubmit)="LoginUser(LoginForm.value)">
+  <input type="text" required #name="ngModel" name="name"  pattern="[a-zA-Z]+$" minlength="2" placeholder="Enter Name" ngModel>
+  <span *ngIf="name.invalid && name.touched" style="color:red">Please Enter A Valid Input</span>
+  <br><br>
+  <input type="password"  required name="password" minlength="2" placeholder="Enter password" ngModel>
+  <br><br>
+  <button [disabled]="LoginForm.invalid"> Login</button>
+</form>
+<h1> reactive Forms </h1>
+<form [formGroup]="loginForm">
+  <input type="text" name="user" placeholder="Enter Name">
+  <br><br>
+  <input type="password" name="password" placeholder="Enter password">
+  <br><br>
+  <button> Login</button>
+</form>
+
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)"> 
+
+  <div>
+    <label><input type="checkbox" name="checkbox" ngModel required> Checkbox</label>
+  </div>
+
+  <div>
+    <label><input type="radio" name="radioGroup" value="Radio Button 1" ngModel required> Radio Button 1</label>
+  </div>
+
+  <div>
+    <label><input type="radio" name="radioGroup" value="Radio Button 2" ngModel required> Radio Button 2</label>
+  </div>
+
+  <div>
+    <label>Text Input: <input type="text" name="textInput" ngModel required></label>
+  </div>
+
+  <div>
+    <label>Password Input: <input type="password" name="passwordInput" ngModel required></label>
+  </div>
+
+  <div>
+    <label>File Input: <input type="file" name="fileInput" ngModel required></label>
+  </div>
+
+  <div>
+    <label>Number Input: <input type="number" name="numberInput" ngModel required></label>
+  </div>
+
+  <div>
+    <label>Range Input: <input type="range" name="rangeInput" ngModel required></label>
+  </div>
+
+  <div>
+    <label>Date Input: <input type="date" name="dateInput" ngModel required pattern="\d{4}-\d{2}-\d{2}"></label>
+  </div>
+
+  <div>
+    <label>Color Picker: <input type="color" name="colorInput" ngModel required></label>
+  </div>
+
+  <div>
+    <label>Email Input: <input type="email" name="emailInput" ngModel required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"></label>
+  </div>
+
+  <div>
+    <label>URL Input: <input type="url" name="urlInput" ngModel required pattern="https?://.+"></label>
+  </div>
+
+  <div>
+    <label>Telephone Input: <input type="tel" name="telInput" ngModel required></label>
+  </div>
+
+  <div>
+    <label>Search Input: <input type="search" name="searchInput" ngModel required></label>
+  </div>
+
+  <div>
+    <button type="submit" [disabled]="!myForm.valid">Submit</button>
+  </div>
+
+</form>
