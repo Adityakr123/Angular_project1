@@ -1,0 +1,12 @@
+<h1>Upload Image</h1>
+<input type="file" (change)="onFileSelected($event)">
+<img *ngIf="imageUrl" [src]="imageUrl" alt="Uploaded Image">
+<button (click)="saveImage()">Save Image</button>
+
+<button (click)="viewImage()">View Image</button>
+
+<div *ngIf="showImage">
+    a
+  <img *ngIf="storedImageUrl1" [src]=storedImageUrl1 alt="Stored Image">
+</div>
+

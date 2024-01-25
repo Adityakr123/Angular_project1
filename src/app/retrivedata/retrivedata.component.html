@@ -1,0 +1,31 @@
+<h1> Retreaving of data </h1>
+<form [formGroup]="Retrieveform" (ngSubmit)="onRetrieveData()">
+  <label>
+    <input type="text" name="user1" placeholder="Enter Name" formControlName="user1">
+  </label>
+  <br>
+  <br>
+  <label>
+    <input type="password" name="password1" placeholder="Enter password" formControlName="password1">
+  </label>
+  <br>
+  <br>
+  <button>Retrieve Data</button>
+</form>
+
+
+<!-- Display section for retrieved data list -->
+<div *ngIf="showRetrievedData && formDataList1.length > 0">
+  <h2>Retrieved Form Data List</h2>
+  <ul *ngFor="let data of formDataList1">
+    <li><strong>User:</strong> {{ data.user }}</li>
+    <li><strong>Password:</strong> {{ data.password }}</li>
+    <li><strong>Email:</strong> {{ data.email }}</li>
+    <li><strong>Age:</strong> {{ data.age }}</li>
+    <li><strong>Terms:</strong> {{ data.terms }}</li>
+    <li><strong>Gender:</strong> {{ data.gender }}</li>
+    <li><strong>Range Input:</strong> {{ data.rangeInput }}</li>
+    <li><strong>Date Input:</strong> {{ data.dateInput }}</li>
+    <li><strong>Color Picker:</strong> {{ data.colorPicker }}</li>
+  </ul>
+</div>

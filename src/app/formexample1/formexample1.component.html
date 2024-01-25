@@ -7,7 +7,12 @@
   <span style="color:red" *ngIf="user && user.invalid && user.touched">
     This field is not valid (Required, Alphabetic characters only)
   </span>
-  <br><br>
+  <br>
+  <label>
+    <input type="number"   placeholder="Phone Number" appPhonenumber>
+  </label>
+  <br>
+  <br>
   <label>
     <input type="password" name="password" placeholder="Enter password" formControlName="password">
   </label>
@@ -44,6 +49,8 @@
     <label>
       <input type="radio" name="gender" value="male" formControlName="gender"> Male
     </label>
+    <br><br>
+    
     <label>
       <input type="radio" name="gender" value="female" formControlName="gender"> Female
     </label>
@@ -67,5 +74,10 @@
     <input type="color" name="colorPicker" formControlName="colorPicker">
   </label>
   <br>
-  <button [disabled]="loginForm.invalid">Login</button>
+  <button [disabled]="loginForm.invalid">Signup</button>
+  <button style="margin-left:20px;" > <a routerLink="update">Update Data</a></button>
+  <button style="margin-left:20px;" > <a routerLink="retrive">Retrive Data</a></button>
+  <button style="margin-left:20px;" > <a routerLink="image">Image upload</a></button>
+  <router-outlet></router-outlet>
 </form>
+<br>

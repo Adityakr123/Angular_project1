@@ -33,6 +33,14 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AdityaComponent } from './aditya/aditya.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UpdatedataComponent } from './updatedata/updatedata.component';
+import { RetrivedataComponent } from './retrivedata/retrivedata.component';
+import { ImageUploadComponent } from './image-upload/image-upload.component';
+import{DomSanitizer,SafeUrl} from '@angular/platform-browser';
+import { PhonenumberDirective } from './phonenumber.directive';
+import { InputphoneComponent } from './inputphone/inputphone.component';
+import { OtpComponent } from './otp/otp.component';
+import { OtpInputDirective } from './otp-input.directive'
 
 @NgModule({
   declarations: [
@@ -62,7 +70,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
          Formexample1Component,
          SignupComponent,
          LoginComponent,
-         AdityaComponent
+         AdityaComponent,
+         UpdatedataComponent,
+         RetrivedataComponent,
+         ImageUploadComponent,
+         PhonenumberDirective,
+         InputphoneComponent,
+         OtpComponent,
+         OtpInputDirective
   ],
   imports: [
     BrowserModule,
@@ -77,9 +92,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       {path:'News/CHILD',component:ChildComponent},
       {path:'followers/:username',component:GithubProfileComponentComponent},
       {path:'reactive',component:ReactiveformComponent},
-      {path:'form1',component:Formexample1Component},
+      {path:'form1',component:Formexample1Component,
+      children:[{path:'update',component:UpdatedataComponent},{path:'retrive',component:RetrivedataComponent},{path:'image',component:ImageUploadComponent}]},
       {path:'login',component:LoginComponent},
       {path:'signup',component:SignupComponent},
+      {path:'phone',component:InputphoneComponent},
       {path:'**',component:NotFoundComponentComponent},
     ]),
     NgbModule

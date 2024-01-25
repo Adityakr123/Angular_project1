@@ -1,0 +1,33 @@
+<h1>Update Data</h1>
+<form (ngSubmit)="authenticateData()"  >
+  <label>
+    User ID:
+    <input type="text" name="userId" [(ngModel)]="userId" >
+  </label>
+  <br>
+  <label>
+    Password:
+    <input type="password" name="password" [(ngModel)]="password" >
+  </label>
+  <br>
+  <button type="submit" [disabled]="!userId || !password">login</button>
+</form>
+{{flag}}
+<br>
+<form *ngIf="flag==1"  [formGroup]="updateForm" (ngSubmit)="onUpdateData()">
+    <br>
+    <label>
+      Updated User:
+      <input type="text" name="updatedUser"  pattern="[a-zA-Z]+" formControlName="name">
+    </label>
+    <br>
+    <label>
+        Updated Password:
+        <input type="text" name="updatedpassword"  pattern="[a-zA-Z]+" formControlName="key">
+      </label>
+      <label>
+        Updated email:
+        <input type="text" name="updatedemail"  formControlName="mail">
+      </label>
+    <button type="submit" [disabled]="!userId || !password">Update Data</button>
+</form>
