@@ -1,0 +1,71 @@
+<h1> Reactive Forms </h1>
+<form [formGroup]="loginForm" (ngSubmit)="onsubmituser()">
+  <label>
+    <input type="text" name="user" placeholder="Enter Name" formControlName="user">
+  </label>
+  <br>
+  <span style="color:red" *ngIf="user && user.invalid && user.touched">
+    This field is not valid (Required, Alphabetic characters only)
+  </span>
+  <br><br>
+  <label>
+    <input type="password" name="password" placeholder="Enter password" formControlName="password">
+  </label>
+  <br>
+  <span style="color:red" *ngIf="password && password.invalid && password.touched">
+    This field is not valid (Required, Minimum length: 5 characters)
+  </span>
+  <br>
+  <label>
+    <input type="email" name="email" placeholder="Enter Email" formControlName="email">
+  </label>
+  <br>
+  <span style="color:red" *ngIf="email && email.invalid && email.touched">
+    This field is not valid (Required, Valid Email format)
+  </span>
+  <br>
+  <label>
+    <input type="number" name="age" placeholder="Enter Age" formControlName="age">
+  </label>
+  <br>
+  <span style="color:red" *ngIf="isAgeInvalid()">
+    This field is not valid (Required, Numeric value only, must be greater than or equal to 1)
+  </span>
+  <br>
+  <label>
+    <input type="checkbox" name="terms" formControlName="terms"> Agree to Terms
+  </label>
+  <br>
+  <span style="color:red" *ngIf="terms && terms.invalid && terms.touched">
+    This field is required (Please agree to the terms)
+  </span>
+  <br>
+  <div>
+    <label>
+      <input type="radio" name="gender" value="male" formControlName="gender"> Male
+    </label>
+    <label>
+      <input type="radio" name="gender" value="female" formControlName="gender"> Female
+    </label>
+  </div>
+  <br>
+
+  <label>
+    Range Input:
+    <input type="range" name="rangeInput" formControlName="rangeInput">
+  </label>
+  <br>
+
+  <label>
+    Date Input:
+    <input type="date" name="dateInput" formControlName="dateInput">
+  </label>
+  <br>
+
+  <label>
+    Color Picker:
+    <input type="color" name="colorPicker" formControlName="colorPicker">
+  </label>
+  <br>
+  <button [disabled]="loginForm.invalid">Login</button>
+</form>

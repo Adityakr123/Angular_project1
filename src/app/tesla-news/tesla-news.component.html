@@ -1,0 +1,11 @@
+<p>tesla-news works!</p>
+<div class="container">
+    <div class="row">
+        <div *ngFor="let d of topheadingDisplay" class="col-lg-3">
+            <img src="{{d.urlToImage}}" width="100%">
+            <h5>{{d.title}}</h5>
+            <p>{{d.content}}</p>
+            <a href="{{d.url}}">Read More</a>
+        </div>
+    </div>
+</div>

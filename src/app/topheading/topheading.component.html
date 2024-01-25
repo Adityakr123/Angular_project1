@@ -1,0 +1,15 @@
+<span > <a routerLink="allnews">All News</a></span>
+<span style="margin-left:10px;"> <a routerLink="tesla">TESLA NEWS</a></span>
+<span style="margin-left:10px;"> <a routerLink="apple">Apple News</a></span>
+
+<router-outlet></router-outlet>
+<div class="container">
+    <div class="row">
+        <div *ngFor="let d of topheadingDisplay" class="col-lg-3">
+            <img src="{{d.urlToImage}}" width="100%">
+            <h5>{{d.title}}</h5>
+            <p>{{d.content}}</p>
+            <a href="{{d.url}}">Read More</a>
+        </div>
+    </div>
+</div>
